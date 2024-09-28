@@ -1,0 +1,23 @@
+
+int getSingleElement(vector<int> &arr) {
+    int left = 0, right = arr.size() - 1;
+
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+
+        // Ensure mid is even
+        if (mid % 2 == 1) {
+            mid--; // Make mid even
+        }
+
+        // Check if the next number is the same
+        if (arr[mid] == arr[mid + 1]) {
+            left = mid + 2; // Move to the right half
+        } else {
+            right = mid; // Move to the left half
+        }
+    }
+
+    // left will point to the unique number
+    return arr[left];
+}
