@@ -1,0 +1,15 @@
+Node* deleteLast(Node *list) {
+    if (list == nullptr || list->next == nullptr) {
+        return nullptr;
+    }
+
+    Node* temp = list;
+    while(temp->next->next != nullptr) {
+        temp = temp->next;
+    }
+
+    delete temp->next;
+    temp->next = nullptr;
+
+    return list;
+}
