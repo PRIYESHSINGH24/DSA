@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    int minValue(Node* root) {
+        // Null BST ka handle karenge
+        if (root == NULL) return -1;
+        
+        // Leftmost node tak traverse karte hain
+        Node* current = root;
+        while (current->left != NULL) {
+            current = current->left;
+        }
+        
+        // Leftmost node ka data return karenge
+        return current->data;
+    }
+};
