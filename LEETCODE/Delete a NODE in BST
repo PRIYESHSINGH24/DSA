@@ -1,0 +1,36 @@
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+
+        if (root->val == key) {
+            // Case 1: Node with no child or one child
+            if (root->left == nullptr) {
+                return root->right;
+            } else if (root->right == nullptr) {
+                return root->left;
+            }
+
+            // Case 2: Node with two children
+            TreeNode* successor = findMin(root->right);
+            root->val = successor->val;
+            root->right = deleteNode(root->right, successor->val);
+        } else if (root->val > key) {
+            root->left = deleteNode(root->left, key);
+        } else {
+            root->right = deleteNode(root->right, key);
+        }
+
+        return root;
+    }
+
+private:
+    TreeNode* findMin(TreeNode* root) {
+        while (root->left != nullptr) {
+            root = root->left;
+        }
+        return root;
+    }
+};
