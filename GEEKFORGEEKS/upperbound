@@ -1,0 +1,19 @@
+class Solution {
+  public:
+    vector<int> getFloorAndCeil(int x, vector<int> &arr) {
+        // code here
+           int floor = -1, ceil = -1;
+
+    // Traverse the array using a traditional for loop
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] <= x) {
+            floor = max(floor, arr[i]); // Update floor if arr[i] is closer to x
+        }
+        if (arr[i] >= x) {
+            ceil = (ceil == -1) ? arr[i] : min(ceil, arr[i]); // Update ceil if arr[i] is closer to x
+        }
+    }
+
+    return {floor, ceil};
+    }
+};
