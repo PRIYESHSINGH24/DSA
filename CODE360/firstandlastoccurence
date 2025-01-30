@@ -1,0 +1,31 @@
+#include <bits/stdc++.h> 
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
+{
+    
+    int s=0,e=n-1;
+
+    int f=-1,l=-1;
+
+    while (s<n && e>=0){
+
+        if (arr[s] == k) {
+
+            l = s;  //last occurrance
+
+        }
+
+        if (arr[e]==k){
+
+            f=e;  //fist occurrance       
+
+       }
+
+        s++;
+
+        e--;
+
+    }
+
+    return {f,l};
+    // Write your code here
+}
