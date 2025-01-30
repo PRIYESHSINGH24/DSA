@@ -1,0 +1,8 @@
+    map<int, int>mp;
+        for(auto it : arr) mp[it]++;
+        int ans = 0;
+        
+        if(mp.count(target)){
+            ans = mp[target];
+        }
+        return ans;
